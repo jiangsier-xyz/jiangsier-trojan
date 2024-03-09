@@ -1,0 +1,17 @@
+{{- if .Values.cert.certificate.enabled -}}
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ include "helm-config.name" . }}-letsencrypt-cert
+  labels:
+    {{- include "helm-config.labels" . | nindent 4 }}
+spec:
+  dnsNames:
+    {{- range .Values.ingress.hosts }}
+    - {{ .host | quote }}
+    {{- end }}
+  issuerRef:
+    kind: Issuer
+    name: {{ include "helm-config.name" . }}-letsencrypt-http01
+  secretName: {{ include "helm-config.name" . }}-letsencrypt-cert
+{{- end }}

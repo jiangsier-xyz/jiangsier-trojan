@@ -1,1 +1,1 @@
-# jiangsier-trojan
+# Helm Chart for Trojan

@@ -1,0 +1,53 @@
+autoscaling:
+  enabled: false
+cert:
+  manager:
+    namespace: cert-manager
+    version: v1.11.0
+  issuer:
+    enabled: true
+  certificate:
+    enabled: true
+  email: 126842484+jiangsier-xyz@users.noreply.github.com
+image:
+  pullPolicy: IfNotPresent
+  repository: trojangfw/trojan
+  tag: 'latest'
+ingress:
+  enabled: true
+  className: nginx
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+  hosts:
+    - host: ''
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    enabled: false
+replicaCount: 1
+resources:
+  limits: {}
+  requests: {}
+service:
+  type: ClusterIP
+  port: 443
+serviceAccount:
+  create: true
+  automount: false
+livenessProbe:
+  tcpSocket:
+    port: 443
+readinessProbe:
+  tcpSocket:
+    port: 443
+trojan:
+  password: ''
+  remote:
+    addr: ''
+    port: 80
+  ssl:
+    cert: '/cert/tls.crt'
+    key: '/cert/tls.key'
+
+
