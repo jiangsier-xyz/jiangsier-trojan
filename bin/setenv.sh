@@ -7,8 +7,7 @@ HELM_CONFIG_HOME=${PROJECT_PATH}/src
 
 KUBE_CONFIG=${HELM_CONFIG_HOME}/kube-private.conf
 HELM_CONFIG=${HELM_CONFIG_HOME}/values-private.yaml
-NAMESPACE=
-INITIAL=0
+NAMESPACE=default
 ARGS=()
 
 while [ $# -gt 0 ]
@@ -31,10 +30,6 @@ do
       ;;
     -v|--verbose)
       set -eux
-      shift
-      ;;
-    --init)
-      INITIAL=1
       shift
       ;;
     *)
