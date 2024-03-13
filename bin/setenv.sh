@@ -7,7 +7,7 @@ HELM_CONFIG_HOME=${PROJECT_PATH}/src
 
 KUBE_CONFIG=${HELM_CONFIG_HOME}/kube-private.conf
 HELM_CONFIG=${HELM_CONFIG_HOME}/values-private.yaml
-NAMESPACE=default
+NAMESPACE=
 ARGS=()
 
 while [ $# -gt 0 ]
