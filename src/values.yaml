@@ -3,11 +3,9 @@ autoscaling:
 cert:
   manager:
     namespace: cert-manager
-    version: v1.11.0
-  issuer:
-    enabled: true
-  certificate:
-    enabled: true
+    version: v1.14.4
+  clusterIssuer:
+    enabled: false
   email: 126842484+jiangsier-xyz@users.noreply.github.com
 image:
   pullPolicy: IfNotPresent
@@ -18,6 +16,7 @@ ingress:
   className: nginx
   annotations:
     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    cert-manager.io/cluster-issuer: jiangsier-trojan-letsencrypt-http01
   hosts:
     - host: ''
       paths:

@@ -8,3 +8,8 @@ helm --kubeconfig ${KUBE_CONFIG} install --create-namespace -f ${values_yaml} \
   --namespace ${HELM_cert_manager_namespace} \
   --version ${HELM_cert_manager_version} \
   --set installCRDs=true
+
+helm --kubeconfig ${KUBE_CONFIG} install -f ${values_yaml} \
+  --set cert.clusterIssuer.enabled=true \
+  ${ARGS[*]} \
+  ${PROJECT_NAME}-cm ${HELM_CONFIG_HOME}

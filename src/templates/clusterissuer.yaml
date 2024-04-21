@@ -1,8 +1,8 @@
-{{- if .Values.cert.issuer.enabled -}}
+{{- if .Values.cert.clusterIssuer.enabled -}}
 apiVersion: cert-manager.io/v1
-kind: Issuer
+kind: ClusterIssuer
 metadata:
-  name: {{ include "helm-config.name" . }}-letsencrypt-http01
+  name: jiangsier-trojan-letsencrypt-http01
   labels:
     {{- include "helm-config.labels" . | nindent 4 }}
 spec:
@@ -14,7 +14,7 @@ spec:
     privateKeySecretRef:
       name: {{ include "helm-config.name" . }}-letsencrypt-http01-key
     solvers:
-      - http01:
+        - http01:
           ingress:
             class: {{ .Values.ingress.className }}
-{{- end }}
+  {{- end }}
