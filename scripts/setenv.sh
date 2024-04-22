@@ -79,3 +79,19 @@ if [[ -z "${NAMESPACE}" ]]; then
   fi
 fi
 
+
+die () {
+  echo "$*"
+  echo
+  exit 1
+} >&2
+
+check_kubectl() {
+  which kubectl &>/dev/null || die "ERROR: You need to have the kubectl toolset in your PATH."
+}
+
+check_helm() {
+  which helm &>/dev/null || die "ERROR: You need to have the helm toolset in your PATH."
+}
+
+
