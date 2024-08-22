@@ -12,6 +12,7 @@ helm --kubeconfig ${KUBE_CONFIG} install --create-namespace -f ${values_yaml} \
   --set installCRDs=true
 
 helm --kubeconfig ${KUBE_CONFIG} install -f ${values_yaml} \
+  --set trojan.enabled=false \
   --set cert.clusterIssuer.enabled=true \
   ${ARGS[*]} \
   ${PROJECT_NAME}-cm ${HELM_CONFIG_HOME}
