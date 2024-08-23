@@ -58,7 +58,7 @@ spec:
             name: trojan-config
         - name: cert
           secret:
-            secretName: {{ include "helm-config.name" . }}-letsencrypt-cert
+            secretName: {{ include "helm-config.name" . }}-tls
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
