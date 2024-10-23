@@ -3,7 +3,7 @@ autoscaling:
 cert:
   manager:
     namespace: cert-manager
-    version: v1.14.4
+    version: v1.16.1
   clusterIssuer:
     enabled: false
   email: 126842484+jiangsier-xyz@users.noreply.github.com
