@@ -22,7 +22,7 @@ ingress:
         - path: /
           pathType: Prefix
   tls:
-    enabled: false
+    enabled: true
 replicaCount: 1
 resources:
   limits: {}
