@@ -11,4 +11,4 @@ helm --kubeconfig ${KUBE_CONFIG} install --create-namespace \
   --set controller.extraArgs.enable-ssl-passthrough=true \
   --set controller.service.externalTrafficPolicy=Local \
   ${ARGS[*]} \
-  ${PROJECT_NAME} ingress-nginx/ingress-nginx
+  ${PROJECT_NAME}-in ingress-nginx/ingress-nginx

@@ -4,4 +4,4 @@ source $(dirname ${BASH_SOURCE[0]})/setenv.sh
 
 check_helm
 
-helm --kubeconfig ${KUBE_CONFIG} --namespace ingress-default delete ${PROJECT_NAME}
+helm uninstall --kubeconfig ${KUBE_CONFIG} --namespace ingress-default ${PROJECT_NAME}-in
