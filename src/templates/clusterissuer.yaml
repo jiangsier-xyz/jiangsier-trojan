@@ -2,7 +2,7 @@
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
-  name: jiangsier-trojan-letsencrypt-http01
+  name: {{ include "helm-config.fullname" . }}-letsencrypt-http01
   labels:
     {{- include "helm-config.labels" . | nindent 4 }}
 spec:
