@@ -4,6 +4,8 @@ cert:
   manager:
     namespace: cert-manager
     version: v1.16.1
+deployment:
+  enabled: true
 image:
   pullPolicy: IfNotPresent
   repository: trojangfw/trojan
@@ -41,7 +43,6 @@ readinessProbe:
   tcpSocket:
     port: 443
 trojan:
-  enabled: true
   password: ''
   remote:
     addr: ''

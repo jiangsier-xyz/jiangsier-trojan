@@ -1,4 +1,4 @@
-{{- if .Values.trojan.enabled -}}
+{{- if .Values.deployment.enabled -}}
 apiVersion: v1
 kind: Service
 metadata:
