@@ -25,10 +25,6 @@ nbdist/
 # Sublime
 *.sublime*
 
-# Charts
-app-meta/helm-config/**/*.tgz
-app-meta/helm-config/**/*.lock
-
 # Logs
 logs
 log.txt

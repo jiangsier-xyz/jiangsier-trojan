@@ -20,6 +20,10 @@ ingress:
           pathType: Prefix
   tls:
     enabled: true
+pdb:
+  create: true
+  minAvailable: ""
+  maxUnavailable: ""
 replicaCount: 1
 resources:
   limits: {}

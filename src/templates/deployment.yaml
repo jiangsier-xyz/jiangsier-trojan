@@ -2,16 +2,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "helm-config.fullname" . }}
+  name: {{ include "helpers.fullname" . }}
   labels:
-    {{- include "helm-config.labels" . | nindent 4 }}
+    {{- include "helpers.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "helm-config.selectorLabels" . | nindent 6 }}
+      {{- include "helpers.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -19,7 +19,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "helm-config.labels" . | nindent 8 }}
+        {{- include "helpers.labels" . | nindent 8 }}
         {{- with .Values.podLabels }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
@@ -28,7 +28,7 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "helm-config.serviceAccountName" . }}
+      serviceAccountName: {{ include "helpers.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
@@ -58,7 +58,7 @@ spec:
             name: trojan-config
         - name: cert
           secret:
-            secretName: {{ include "helm-config.name" . }}-tls
+            secretName: {{ include "helpers.name" . }}-tls
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
