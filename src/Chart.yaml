@@ -1,6 +1,6 @@
 annotations:
   licenses: Apache-2.0
-appVersion: '0.1.0'
+appVersion: latest
 description: A Helm chart for trojan
 maintainers:
   - email: 126842484+jiangsier-xyz@users.noreply.github.com
@@ -8,4 +8,4 @@ maintainers:
     url: https://github.com/jiangsier-xyz/jiangsier-trojan
 name: jiangsier-trojan
 type: application
-version: 0.1.0
+version: 0.2.0

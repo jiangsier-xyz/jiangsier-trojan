@@ -9,7 +9,6 @@ deployment:
 image:
   pullPolicy: IfNotPresent
   repository: trojangfw/trojan
-  tag: 'latest'
 ingress:
   className: nginx
   annotations:
