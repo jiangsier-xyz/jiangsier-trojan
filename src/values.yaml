@@ -23,8 +23,8 @@ ingress:
     enabled: true
 pdb:
   create: true
-  minAvailable: ""
-  maxUnavailable: ""
+  minAvailable: ''
+  maxUnavailable: ''
 replicaCount: 1
 resources:
   limits: {}
